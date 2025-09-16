@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:data="clr-namespace:TestSqlGilmi.Data"
+        mc:Ignorable="d" d:DesignWidth="600" d:DesignHeight="400"
+        x:Class="TestSqlGilmi.CreateAndChangeUser"
+        Title="Create">
+
+	<Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,*,Auto" Margin="10" ShowGridLines="True">
+		<TextBlock Text="ФИО:" Grid.Row="0" Grid.Column="0" Margin="0,0,0,5"/>
+		<TextBox Grid.Row="1" Grid.Column="0" Name="FullNameText" Margin="0,0,0,10"
+				 Watermark="Фамилия Имя Отчество"/>
+
+		<TextBlock Text="Номер телефона:" Grid.Row="2" Grid.Column="0" Margin="0,0,0,5"/>
+		<TextBox Grid.Row="3" Grid.Column="0" Name="PhoneNumberText" Margin="0,0,0,10"
+				 Watermark="Напишите номер"/>
+
+		<TextBlock Text="Описание:" Grid.Row="4" Grid.Column="0" Margin="0,0,0,5"/>
+		<TextBox Grid.Row="5" Grid.Column="0" Name="DescriptionText" Margin="0,0,0,10"
+				 Height="70"
+				 AcceptsReturn="True"
+				 TextWrapping="Wrap"
+				 Watermark="Напишите описание"/>
+
+		<TextBlock Text="Логин:" Grid.Row="0" Grid.Column="1" Margin="30,0,0,5"/>
+		<TextBox Grid.Row="1" Grid.Column="1" Name="LoginText" Margin="30,0,0,10"
+				 Watermark="Напшите логин"/>
+
+		<TextBlock Text="Пароль:" Grid.Row="2" Grid.Column="1" Margin="30,0,0,5"/>
+		<TextBox Grid.Row="3" Grid.Column="1" Name="PasswordText" Margin="30,0,0,10"
+				 PasswordChar="*"
+				 Watermark="Напшите пароль"/>
+
+		<TextBlock Text="Роль:" Grid.Row="4" Grid.Column="1" Margin="30,0,0,5"/>
+		<ComboBox Grid.Row="5" Grid.Column="1" Name="RoleComboBox" Margin="30,0,0,10">
+			<ComboBox.ItemTemplate>
+				<DataTemplate DataType="data:Role">
+					<TextBlock Text="{Binding Name}"/>
+				</DataTemplate>
+			</ComboBox.ItemTemplate>
+		</ComboBox>
+
+		<Button Content="Сохранить" Grid.Row="8" Grid.ColumnSpan="2"
+                HorizontalAlignment="Right" Width="100" Margin="10"
+                Click="Button_Click"/>
+	</Grid>
+</Window>
