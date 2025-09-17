@@ -17,9 +17,8 @@ namespace TestSqlGilmi.ViewModels
 
         public void RefreshData()
         {
-            var usersFromDb = App.DbContext.Users
-                .Include(u => u.Roles)
-                .ToList();
+            var usersFromDb = App.DbContext.Users.ToList();
+            
             Users = usersFromDb;
             OnPropertyChanged(nameof(Users));
         }

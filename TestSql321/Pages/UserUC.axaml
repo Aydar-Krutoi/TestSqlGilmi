@@ -3,6 +3,36 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="TestSqlGilmi.UserUC">
-  
+             x:Class="TestSqlGilmi.UserUC"
+			 xmlns:vm="using:TestSqlGilmi.ViewModels"
+	         x:DataType="vm:MainWindowViewModel">
+	         
+
+
+	<Grid RowDefinitions="*,Auto"
+          ColumnDefinitions="*">
+
+		<DataGrid Grid.Row="0"
+                 ItemsSource="{Binding Users}"
+                 IsReadOnly="True"
+                 DoubleTapped="DataGrid_DoubleTapped"
+                 Name="MainDataGridUsers">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"/>
+				<DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
+				<DataGridTextColumn Header="Description" Binding="{Binding Descipition}"/>
+				<DataGridTextColumn Header="Role" Binding="{Binding Roles.Name}"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<StackPanel Grid.Row="1"
+                   HorizontalAlignment="Left"
+                   Orientation="Horizontal"
+                   Margin="10"
+                   Spacing="10">
+			<Button Content="Добавить" Click="Button_Click"/>
+		</StackPanel>
+
+	</Grid>
+
 </UserControl>

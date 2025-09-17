@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="TestSqlGilmi.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="Users">
 	<Grid RowDefinitions="Auto, *, Auto">
@@ -46,26 +45,8 @@
 					FontSize="16"
 					FontWeight="Bold"/>
 		</StackPanel>
+		
+		 <UserControl Name="MainControl" Grid.Row="1"/>
 
-		<DataGrid Grid.Row="1"
-                 ItemsSource="{Binding Users}"
-                 IsReadOnly="True"
-                 DoubleTapped="DataGrid_DoubleTapped"
-                 Name="MainDataGridUsers">
-			<DataGrid.Columns>
-				<DataGridTextColumn Header="Full Name" Binding="{Binding FullName}"/>
-				<DataGridTextColumn Header="Phone Number" Binding="{Binding PhoneNumber}"/>
-				<DataGridTextColumn Header="Description" Binding="{Binding Descipition}"/>
-				<DataGridTextColumn Header="Role" Binding="{Binding Roles.Name}"/>
-			</DataGrid.Columns>
-		</DataGrid>
-
-		<StackPanel Grid.Row="2"
-                   HorizontalAlignment="Left"
-                   Orientation="Horizontal"
-                   Margin="10"
-                   Spacing="10">
-			<Button Content="Добавить" Click="Button_Click"/>
-		</StackPanel>
 	</Grid>
 </Window>
