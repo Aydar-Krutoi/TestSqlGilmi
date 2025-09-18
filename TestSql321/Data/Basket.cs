@@ -16,4 +16,4 @@ public partial class Basket
     public virtual Item Items { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
-}
+}   

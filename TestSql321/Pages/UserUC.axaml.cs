@@ -14,15 +14,9 @@ public partial class UserUC : UserControl
     {
         InitializeComponent();
         DataContext = new MainWindowViewModel();
-        LoadData();
     }
 
-    private void LoadData()
-    {
-
-       var users = App.DbContext.Users.ToList();
-       MainDataGridUsers.ItemsSource = users;
-    }
+   
 
     private async void DataGrid_DoubleTapped(object? sender, Avalonia.Input.TappedEventArgs e)
     {

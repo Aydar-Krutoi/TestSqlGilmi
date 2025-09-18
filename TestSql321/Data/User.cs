@@ -19,7 +19,7 @@ public partial class User
 
     public virtual ICollection<Login> Logins { get; set; } = new List<Login>();
 
-    public virtual Role Roles { get; set; } = null!;
+    public virtual Role Roles { get; set; } 
 
 
 }

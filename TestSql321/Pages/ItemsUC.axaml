@@ -3,6 +3,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="TestSqlGilmi.ItemsUC">
-  
+             x:Class="TestSqlGilmi.ItemsUC"
+             xmlns:vm="using:TestSqlGilmi.ViewModels"
+             x:DataType="vm:MainWindowViewModel">
+
+	<Grid RowDefinitions="*,Auto" ColumnDefinitions="*">
+		<DataGrid Grid.Row="0"
+                 ItemsSource="{Binding Items}"
+                 IsReadOnly="True"
+                 DoubleTapped="DataGrid_DoubleTapped"
+                 Name="MainDataGridItems"
+                 AutoGenerateColumns="False">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="ID" Binding="{Binding IdItems}" Width="80"/>
+				<DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="150"/>
+				<DataGridTextColumn Header="Price" Binding="{Binding Price}" Width="100"/>
+				<DataGridTextColumn Header="Description" Binding="{Binding Opisanie}" Width="200"/>
+			</DataGrid.Columns>
+		</DataGrid>
+
+		<StackPanel Grid.Row="1" HorizontalAlignment="Left" Orientation="Horizontal" Margin="10" Spacing="10">
+			<Button Content="Добавить" Click="Button_Click"/>
+		</StackPanel>
+	</Grid>
 </UserControl>
